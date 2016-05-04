@@ -1,0 +1,24 @@
+{
+    "name": "mainpixel/apiV1",
+    "description": "Build amazing apps for Laravel5",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jasper Berkhout",
+            "email": "jasper@mainpixel.io"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "^5.2",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/Controllers"
+        ],
+        "psr-4" : {
+            "Mainpixel\\ApiV1\\" : "src/"
+        }
+    }
+}

@@ -1,13 +1,19 @@
 {
     "name": "mainpixel/apiV1",
-    "description": "Build amazing apps for Laravel5",
-    "license": "MIT",
+    "description": "Connect all Mainpixel apps with your own application based on Laravel 5.* or higher",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Jasper Berkhout",
-            "email": "jasper@mainpixel.io"
+            "email": "jasper@mainpixel.io",
+            "homepage": "https://www.mainpixel.io",
+            "role": "Owner-/Developer"
         }
     ],
+    "support": {
+        "email": "support@mainpixel.io",
+        "irc": "irc://irc.freenode.org/mainpixelbv"
+    }
     "minimum-stability": "dev",
     "require": {
         "illuminate/support": "^5.2",
@@ -18,7 +24,7 @@
             "src/Controllers"
         ],
         "psr-4" : {
-            "Mainpixel\\ApiV1\\" : "src/"
+            "Mainpixel\\Api\\" : "src/"
         }
     }
 }

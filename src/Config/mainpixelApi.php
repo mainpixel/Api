@@ -21,50 +21,22 @@
  * under the License.
  */
 
-namespace Mainpixel\Api;
+return [
 
-use Illuminate\Support\ServiceProvider;
+		/*
+		 * Mainpixel.io API URL.
+		 * Default: https://account.mainpixel.io/api/v1
+		 *
+		 * If you are running private server or you are a whitelabel/reseller
+		 * you can replace it with your own domain.
+		 *
+		 * Need support? Set a issue in GitHub or send us an e-mail (support@mainpixel.io).
+		 *
+		 * Auth. based on token & whitelisted IP.
+		 * Please check documentation for a how-to.
+		 */
 
-class MainpixelServiceProvider extends ServiceProvider
-{
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool $defer
-	 */
-	protected $defer = false;
-	/**
-	 * Bootstrap the application services.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
-		// Configuration file
-		$configPath = __DIR__ . '/Config/mainpixelApi.php';
-		$this->mergeConfigFrom($configPath, 'mainpixelApi');
-		$this->publishes([
-			$configPath => config_path('mainpixelApi.php'),
-		]);
-	}
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return ['Mainpixel\Api'];
-	}
-	/**
-	 * Register the application services.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		$this->app->bind('MpApi', function ($app) {
-			return new Mainpixel\Api;
-		});
-	}
-}
+		'url' => 'http://account.mainpixel.io/api/v1/',
+		'token' => '572b33a5c41f31c66c8b4579',
+
+	];

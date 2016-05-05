@@ -1,11 +1,24 @@
 <?php
 /**
- *
- * Copyright (C) 4/5/2016 (dd-mm-yyyy).
  * Mainpixel B.V.  - All Rights Reserved.
- * Unauthorized copying of this file, via any medium is strictly prohibited.
  * Written by Jasper Berkhout <jasper@mainpixel.io>.
  *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
  */
 
 namespace Mainpixel\Api;
@@ -14,11 +27,10 @@ use GuzzleHttp;
 class MainpixelApi {
 
 	private $mode;
-	private $response;
 	private $methodname;
 	private $identifier;
 
-	protected $parentName = 'Mainpixel\Api\WefactApi';
+	protected $parentName = 'Mainpixel\Api';
 
 	public function __construct(){
 		if (!isset($this->mode)) {
@@ -57,9 +69,9 @@ class MainpixelApi {
 		// 1.1 Init Guzzle.
 		$client = new GuzzleHttp\Client();
 		// 1.2 Do a request into given URL.
-		$res = $client->request(strtoupper($request), config('mainpixel.url') . $controller, [
+		$res = $client->request(strtoupper($request), config('mainpixelApi.url') . $controller, [
 			'headers' => [
-				'token' => '572b33a5c41f31c66c8b4579',
+				'token' => config('mainpixelApi.token'),
 				'identifier' => $this->identifier,
 			],
 			'json' => $params,

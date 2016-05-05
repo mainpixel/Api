@@ -26,9 +26,7 @@ class MainpixelApi {
 			$this->mode = last($function_call);
 		}
 	}
-
 	public function __call($method, $arguments){
-
 		// Rename functions from inhented instances from method to _method for internal use.
 		if (get_class($this) != $this->parentName) {
 			if (in_array($method, $this->allowed)) {
@@ -41,41 +39,31 @@ class MainpixelApi {
 					return call_user_func_array([$this, $this->methodname], $arguments);
 				}
 			} else {
-				return get_class($this);
+				// No function found or allowed to open.
+				abort('404', 'This function is not found or allowed.');
 			}
 		}
 	}
-
 	protected function _list(array $input){
 		return $this->pseudoRequest('GET', $input);
 	}
 	protected function _edit(array $input){
 		return $this->pseudoRequest('GET', $input);
 	}
-
 	protected function pseudoRequest($request, array $input){
 		return $this->sendRequest($this->mode, $request, $input);
 	}
-
 	protected function sendRequest($controller, $request, $params){
+		// 1.1 Init Guzzle.
 		$client = new GuzzleHttp\Client();
-
-		$headers = [
-			'token' => 'fsdfsdfsdfdsfsdfsdfdsf',
-			'profile' => 'fsdfsdfsdfdsfsdfsdfdsf',
-		];
-
-        if(strlen($this->identifier)>0){
-			$headers['identifier'] = $this->identifier;
-		}
-
+		// 1.2 Do a request into given URL.
 		$res = $client->request(strtoupper($request), config('mainpixel.url') . $controller, [
-			'headers' => $headers,
+			'headers' => [
+				'token' => '572b33a5c41f31c66c8b4579',
+				'identifier' => $this->identifier,
+			],
 			'json' => $params,
 		]);
-
 		return $res->getBody();
 	}
-
-
 }

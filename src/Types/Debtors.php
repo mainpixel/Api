@@ -19,6 +19,7 @@ class Debtors extends MainpixelApi{
 		'edit',
 		'show',
 		'list',
+		'remove',
 	];
 
 }

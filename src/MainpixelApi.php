@@ -23,6 +23,7 @@
 
 namespace Mainpixel\Api;
 use GuzzleHttp;
+use GuzzleHttp\Exception\ClientException;
 
 class MainpixelApi {
 
@@ -56,11 +57,11 @@ class MainpixelApi {
 			}
 		}
 	}
-	protected function _list(array $input){
+	protected function _list(array $input = []){
 		return $this->pseudoRequest('GET', $input);
 	}
-	protected function _edit(array $input){
-		return $this->pseudoRequest('GET', $input);
+	protected function _edit(array $input = []){
+		return $this->pseudoRequest('PUT', $input);
 	}
 	protected function pseudoRequest($request, array $input){
 		return $this->sendRequest($this->mode, $request, $input);
@@ -69,13 +70,22 @@ class MainpixelApi {
 		// 1.1 Init Guzzle.
 		$client = new GuzzleHttp\Client();
 		// 1.2 Do a request into given URL.
-		$res = $client->request(strtoupper($request), config('mainpixelApi.url') . $controller, [
-			'headers' => [
-				'token' => config('mainpixelApi.token'),
-				'identifier' => $this->identifier,
-			],
-			'json' => $params,
-		]);
-		return $res->getBody();
+
+		try {
+			$res = $client->request(strtoupper($request), config('mainpixelApi.url') . $controller, [
+				'headers' => [
+					'token' => config('mainpixelApi.token'),
+					'identifier' => $this->identifier,
+				],
+				'json' => $params,
+			]);
+			return $res->getBody();
+
+		} catch (\Exception $ex) {
+			return $ex->getMessage();
+			//dd($ex->getCode());
+			\Log::error($ex);
+		}
+
 	}
 }

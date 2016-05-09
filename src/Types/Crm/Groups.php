@@ -14,7 +14,7 @@ use Mainpixel\Api\MainpixelApi;
 
 class Groups extends MainpixelApi{
 
-	protected $path = 'crm/groups/';
+	protected $path = 'crm/groups';
 
 	protected $allowed = [
 		'add',

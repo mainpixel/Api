@@ -61,11 +61,14 @@ class MainpixelApi {
 		return $this->pseudoRequest('GET', $input);
 	}
 	protected function _remove(array $input = []){
-		$this->path = $this->path . $input['identifier'];
+		$this->path = $this->path . '/'.$input['identifier'];
 		return $this->pseudoRequest('DELETE', []);
 	}
 	protected function _edit(array $input = []){
 		return $this->pseudoRequest('PUT', $input);
+	}
+	protected function _add(array $input = []){
+		return $this->pseudoRequest('POST', $input);
 	}
 	protected function pseudoRequest($request, array $input){
 		return $this->sendRequest($this->mode, $request, $input);

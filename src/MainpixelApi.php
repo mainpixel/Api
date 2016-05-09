@@ -60,6 +60,10 @@ class MainpixelApi {
 	protected function _list(array $input = []){
 		return $this->pseudoRequest('GET', $input);
 	}
+	protected function _remove(array $input = []){
+		$this->path = $this->path . $input['identifier'];
+		return $this->pseudoRequest('DELETE', []);
+	}
 	protected function _edit(array $input = []){
 		return $this->pseudoRequest('PUT', $input);
 	}
@@ -69,17 +73,18 @@ class MainpixelApi {
 	protected function sendRequest($controller, $request, $params){
 		// 1.1 Init Guzzle.
 		$client = new GuzzleHttp\Client();
+		$open = config('mainpixelApi.url') . $this->path;
 		// 1.2 Do a request into given URL.
 
 		try {
-			$res = $client->request(strtoupper($request), config('mainpixelApi.url') . $controller, [
+			$res = $client->request(strtoupper($request), $open, [
 				'headers' => [
 					'token' => config('mainpixelApi.token'),
 					'identifier' => $this->identifier,
 				],
-				'json' => $params,
+				'query' => $params,
 			]);
-			return $res->getBody();
+			return json_decode($res->getBody()->getContents(),true);
 
 		} catch (\Exception $ex) {
 			return $ex->getMessage();

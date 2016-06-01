@@ -14,7 +14,7 @@ use Mainpixel\Api\MainpixelApi;
 
 class Debtors extends MainpixelApi{
 
-	protected $path = 'crm/debtors/';
+	protected $path = 'crm/debtors';
 
 	protected $allowed = [
 		'add',

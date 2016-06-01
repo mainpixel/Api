@@ -45,10 +45,7 @@ class MainpixelApi {
 			if (in_array($method, $this->allowed)) {
 				$this->methodname = '_' . $method;
 				if (method_exists($this, $this->methodname)) {
-					if(count($arguments) == 2){
-						$this->identifier = $arguments[0];
-						$arguments = [$arguments[1]];
-					}
+
 					return call_user_func_array([$this, $this->methodname], $arguments);
 				}
 			} else {
@@ -58,6 +55,10 @@ class MainpixelApi {
 		}
 	}
 	protected function _list(array $input = []){
+		return $this->pseudoRequest('GET', $input);
+	}
+	protected function _show(array $input = []){
+		$this->path = $this->path . '/'.$input['identifier'];
 		return $this->pseudoRequest('GET', $input);
 	}
 	protected function _remove(array $input = []){
@@ -77,13 +78,15 @@ class MainpixelApi {
 		// 1.1 Init Guzzle.
 		$client = new GuzzleHttp\Client();
 		$open = config('mainpixelApi.url') . $this->path;
-		// 1.2 Do a request into given URL.
 
+
+		// 1.2 Do a request into given URL.
 		try {
-			$res = $client->request(strtoupper($request), $open, [
+
+			$res = $client->request(strtoupper($request), (string)$open, [
 				'headers' => [
 					'token' => config('mainpixelApi.token'),
-					'identifier' => $this->identifier,
+					//'identifier' => $this->identifier,
 				],
 				'query' => $params,
 			]);

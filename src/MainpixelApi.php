@@ -66,6 +66,7 @@ class MainpixelApi {
 		return $this->pseudoRequest('DELETE', []);
 	}
 	protected function _edit(array $input = []){
+		$this->path = $this->path . '/'.$input['identifier'];
 		return $this->pseudoRequest('PUT', $input);
 	}
 	protected function _add(array $input = []){
@@ -78,7 +79,6 @@ class MainpixelApi {
 		// 1.1 Init Guzzle.
 		$client = new GuzzleHttp\Client();
 		$open = config('mainpixelApi.url') . $this->path;
-
 
 		// 1.2 Do a request into given URL.
 		try {

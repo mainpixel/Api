@@ -8,18 +8,18 @@
  *
  */
 
-namespace Mainpixel\Api\Types\Crm;
+namespace Mainpixel\Api\Types\Hosting;
 
 use Mainpixel\Api\MainpixelApi;
 
-class Groups extends MainpixelApi{
+class Records extends MainpixelApi{
 
-	protected $path = 'crm/groups';
+	protected $path = 'hosting/records';
 
 	protected $allowed = [
 		'add',
-		'show',
 		'edit',
+		'show',
 		'list',
 		'remove',
 	];

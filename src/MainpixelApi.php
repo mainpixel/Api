@@ -63,7 +63,7 @@ class MainpixelApi {
 	}
 	protected function _remove(array $input = []){
 		$this->path = $this->path . '/'.$input['identifier'];
-		return $this->pseudoRequest('DELETE', []);
+		return $this->pseudoRequest('DELETE', $input);
 	}
 	protected function _edit(array $input = []){
 		$this->path = $this->path . '/'.$input['identifier'];
@@ -83,18 +83,30 @@ class MainpixelApi {
 		// 1.2 Do a request into given URL.
 		try {
 
-			$res = $client->request(strtoupper($request), (string)$open, [
-				'headers' => [
-					'token' => config('mainpixelApi.token'),
-					//'identifier' => $this->identifier,
-				],
-				'query' => $params,
-			]);
+			// 1.3 Set-up default headers.
+			$fill = ['headers' => ['token' => config('mainpixelApi.token')]];
+
+			// 1.4 If method is GET
+			if(in_array(strtoupper($request),['GET'])){
+				$job = array_merge($fill,[
+					'headers' => [
+						'token' => config('mainpixelApi.token'),
+					],
+					'query' => $params,
+				]);
+			// 1.5 If method not as above.
+			} else {
+				$job = array_merge($fill,[
+					'form_params' => $params,
+				]);
+			}
+
+			// 1.6 Execute request into API Server.
+			$res = $client->request(strtoupper($request), (string)$open, $job);
 			return json_decode($res->getBody()->getContents(),true);
 
 		} catch (\Exception $ex) {
 			return $ex->getMessage();
-			//dd($ex->getCode());
 			\Log::error($ex);
 		}
 

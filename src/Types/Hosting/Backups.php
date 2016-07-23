@@ -10,7 +10,7 @@ namespace Mainpixel\Api\Types\Hosting;
 
 use Mainpixel\Api\MainpixelApi;
 
-class Keys extends MainpixelApi{
+class Backups extends MainpixelApi{
 
 	protected $path = 'hosting/backups';
 

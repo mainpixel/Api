@@ -24,6 +24,7 @@
 namespace Mainpixel\Api;
 use GuzzleHttp;
 use GuzzleHttp\Exception\ClientException;
+use App;
 
 class MainpixelApi {
 
@@ -84,12 +85,18 @@ class MainpixelApi {
 		try {
 
 			// 1.3 Set-up default headers.
-			$fill = ['headers' => ['token' => config('mainpixelApi.token')]];
+			$fill = [
+				'headers' => [
+					'token' => config('mainpixelApi.token'),
+					'language'=>app()->getLocale()
+				]
+			];
 
 			// 1.4 If method is GET
 			if(in_array(strtoupper($request),['GET'])){
 				$job = array_merge($fill,[
 					'headers' => [
+						'language' => app()->getLocale(),
 						'token' => config('mainpixelApi.token'),
 					],
 					'query' => $params,

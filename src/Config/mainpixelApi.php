@@ -37,6 +37,6 @@ return [
 		 */
 
 		'url' => 'http://account.mainpixel.io/api/v1/',
-		'token' => '572b33a5c41f31c66c8b4579',
+		'token' => 'aa_572b33a5c41f31c66c8b4579____',
 
 	];

@@ -22,7 +22,7 @@ return [
      * If you are running a private server and building a application witch allow people to
      * manage their profiles. You can add a API token witch allow 'all' profiles by default.
      *
-     * You can overwrite below value by doing 'config(["MainpixelApi"=>'YOUR-PROFILE-ID'])'
+     * You can overwrite below value by doing 'config(["MainpixelApi.profile"=>'YOUR-PROFILE-ID'])'
      * So when force every api-call with the right selected profileID.
      */
 

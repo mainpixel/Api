@@ -34,12 +34,22 @@ class MainpixelApi {
 
 	protected $parentName = 'Mainpixel\Api';
 
+	/**
+	 * MainpixelApi constructor.
+	 */
 	public function __construct(){
 		if (!isset($this->mode)) {
 			$function_call = explode('\\', strtolower(get_class($this)));
 			$this->mode = last($function_call);
 		}
 	}
+
+	/**
+	 * @param $method
+	 * @param $arguments
+	 *
+	 * @return mixed
+	 */
 	public function __call($method, $arguments){
 		// Rename functions from inhented instances from method to _method for internal use.
 		if (get_class($this) != $this->parentName) {
@@ -55,6 +65,7 @@ class MainpixelApi {
 			}
 		}
 	}
+
 	protected function _list(array $input = []){
 		return $this->pseudoRequest('GET', $input);
 	}
@@ -76,6 +87,14 @@ class MainpixelApi {
 	protected function pseudoRequest($request, array $input){
 		return $this->sendRequest($this->mode, $request, $input);
 	}
+
+	/**
+	 * @param $controller
+	 * @param $request
+	 * @param $params
+	 *
+	 * @return string
+	 */
 	protected function sendRequest($controller, $request, $params){
 		// 1.1 Init Guzzle.
 		$client = new GuzzleHttp\Client();
@@ -84,28 +103,26 @@ class MainpixelApi {
 		// 1.2 Do a request into given URL.
 		try {
 
-			// 1.3 Set-up default headers.
-			$fill = [
-				'headers' => [
-					'token' => config('mainpixelApi.token'),
-					'language'=>app()->getLocale()
-				]
-			];
-
 			// 1.4 If method is GET
 			if(in_array(strtoupper($request),['GET'])){
-				$job = array_merge($fill,[
+				$job = [
 					'headers' => [
-						'language' => app()->getLocale(),
 						'token' => config('mainpixelApi.token'),
+						'profile' => config('mainpixelApi.profile'),
+						'language' => app()->getLocale(),
 					],
 					'query' => $params,
-				]);
+				];
 			// 1.5 If method not as above.
 			} else {
-				$job = array_merge($fill,[
+				$job = [
+					'headers' => [
+						'token' => config('mainpixelApi.token'),
+						'profile' => config('mainpixelApi.profile'),
+						'language'=>app()->getLocale()
+					],
 					'form_params' => $params,
-				]);
+				];
 			}
 
 			// 1.6 Execute request into API Server.

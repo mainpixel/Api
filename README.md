@@ -6,6 +6,8 @@ Laravel API was created by, and is maintained by [Mr. J. del Luna](https://githu
 
 [PHP](https://php.net) 7+ are required.
 
+[Laravel](https://laravel.com) 5.2+ are required.
+
 To get the latest version of Laravel Mainpixel, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
@@ -41,4 +43,19 @@ $ php artisan vendor:publish
 ```
 
 This will create a `config/MainpixelApi.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
+
+## Usage
+
+### Hosting
+
+#### Webcontainers
+##### List
+List all webcontainers.
+
+```php
+public function index() {
+    $list = $containers->list();
+}
+```
+
 

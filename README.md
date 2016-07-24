@@ -68,20 +68,20 @@ public function index() {
         "identifier" : "UNIQUE-CONTAINER-ID",
         "created_at" : "UNIX-TIMESTAMP",
         "updated_at" : "UNIX-TIMESTAMP",
-        "dns_general_state" : "DOMAINS-DNS-STATE (true/false)",
+        "dns_general_state" : "DOMAINS-DNS-STATE (true/false)"
     },
     "data" : {
     
     },
     "domains" : {
         0 : {
-            "DOMAIN-ID" => "DOMAIN-INCL-TLD"
+            "DOMAIN-ID" : "DOMAIN-INCL-TLD"
         }, 
     },
     "amount" : {
-        "domains" => "NUMBER-OF-DOMAINS",
-        "email" => "NUMBER-OF-EMAIL-ACCOUNTS/FORWARDERS/CATCHALLS",
-        "databases" => "NUMBER-OF-DATABASES",
+        "domains" : "NUMBER-OF-DOMAINS",
+        "email" : "NUMBER-OF-EMAIL-ACCOUNTS/FORWARDERS/CATCHALLS",
+        "databases" : "NUMBER-OF-DATABASES"
     },
 }
 

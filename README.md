@@ -71,13 +71,12 @@ public function index() {
         "dns_general_state" : "DOMAINS-DNS-STATE (true/false)"
     },
     "data" : {
-        'general' => 
-        array (
+        'general' : {
           'name' : 'CONTAINER-NAME',
           'type' : 'TYPE (like: wordpress, magento, laravel etc..)',
           'note' : 'NOTE',
           'php' : 'PHP-VERSION (default 7)'
-        )
+        }
     },
     "domains" : {
         "0" : {

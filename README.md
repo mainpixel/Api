@@ -2,6 +2,40 @@ Laravel Mainpixel Api
 ====================
 Laravel API was created by, and is maintained by [Mr. J. del Luna](https://github.com/paperclamp), and is a [MainpixelV4](https://www.mainpixel.io) bridge for [Laravel 5](http://laravel.com). Feel free to check out the [change log](CHANGELOG.md).
 
+## Index
+
+- Installation
+- Configuration
+- Usage
+- Webhosting
+    - Webcontainers
+        - [List webcontainers](#list-all-webcontainers)
+        - [Show webcontainer](#show-webcontainer)
+        - [Update webcontainer](#update-webcontainer)
+        - [Remove webcontainer](#destroy-webcontainer)
+    - Domains
+        - [List domains](#list-all-domains)
+        - [Show domain](#show-domain)
+        - [Update domain](#update-domain)
+        - [Remove domain](#destroy-domain)
+    - Email Accounts
+        - [List accounts](#list-all-email-accounts)
+        - [Show account](#show-email-account)
+        - [Update account](#update-email-acount)
+        - [Remove account](#destroy-email-acount)
+    - Email Forwarder
+        - [List accounts](#list-all-email-accounts)
+        - [Show account](#show-email-account)
+        - [Update account](#update-email-acount)
+        - [Remove account](#destroy-email-acount)
+    - Email Catchalls
+        - [List accounts](#list-all-email-accounts)
+        - [Show account](#show-email-account)
+        - [Update account](#update-email-acount)
+        - [Remove account](#destroy-email-acount)
+    
+
+
 ## Installation
 
 [PHP](https://php.net) 7+ are required.
@@ -54,11 +88,6 @@ use Mainpixel\Api\Types\Hosting\{type};
 ## Hosting
 
 ### Webcontainers 
-
-- [List webcontainers](#list-all-webcontainers)
-- [Show webcontainer](#show-webcontainer)
-- [Update webcontainer](#update-webcontainer)
-- [Destroy webcontainer](#destroy-webcontainer)
 
 `use Mainpixel\Api\Types\Hosting\Containers;`
 

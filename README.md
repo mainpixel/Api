@@ -45,7 +45,7 @@ $ php artisan vendor:publish
 This will create a `config/MainpixelApi.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
 
 ## Usage
-`use` the right type class. Like `Containers`, `Databases`, `Contacts`
+Add a `namespace` by choosing the right type, like `Containers`, `Databases`, `Contacts`
 
 ```php
 use Mainpixel\Api\Types\Hosting\{type};
@@ -53,7 +53,12 @@ use Mainpixel\Api\Types\Hosting\{type};
 
 ## Hosting
 
-### Webcontainers
+### Webcontainers 
+
+`use Mainpixel\Api\Types\Hosting\Containers;`
+
+During the building process of Mainpixel we took a whole new concept together. We wanted to issolate each website/platform from eachother. So we builded a container management platform. So each website/platform is hosted in a seperate webcontainer. Those webcontainers can we automatically move arround nodes for the best performance and scalability.
+
 #### List all webcontainers
 
 ```php
@@ -120,4 +125,6 @@ public function show($containerID) {
     },
 }
 ```
+
+
 

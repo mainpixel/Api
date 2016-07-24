@@ -44,13 +44,10 @@ $ php artisan vendor:publish
 
 This will create a `config/MainpixelApi.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
 
-## Usage
+## Hosting
 
-### Hosting
-
-#### Webcontainers
-##### List
-List all webcontainers.
+### Webcontainers
+#### List all webcontainers
 
 ```php
 public function index() {

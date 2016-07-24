@@ -62,9 +62,9 @@ Once Laravel Mainpixel is installed, you need to register the service provider. 
 
 * `'mainpixelbv\laravel-mainpixel\MainpixelApiServiceProvider'`
 
-You can register the DigitalOcean facade in the `aliases` key of your `config/app.php` file if you like.
+You can register the Mainpixel facade in the `aliases` key of your `config/app.php` file if you like.
 
-* `'DigitalOcean' => 'mainpixelbv\laravel-mainpixel\MainpixelApi'`
+* `'MPAPI' => 'mainpixelbv\laravel-mainpixel\MainpixelApi'`
 
 ## Configuration
 
@@ -155,6 +155,31 @@ public function show($containerID) {
           "php" : "PHP-VERSION (default 7)"
         }
     },
+}
+```
+
+#### Update Webcontainer
+
+```php
+public function update($containerID) {
+    $show = $containers->uptate([
+        'identifier' => 'CONTAINER-IDENTIFIER',
+        'data' => [
+            'general' => [
+                'name' => 'CONTAINER-NAME',
+                'type' => 'TYPE (like: wordpress, magento, laravel etc..)',
+                'note' => 'NOTE',
+                'php' => 'PHP-VERSION'
+            ],
+        ]
+    ]);
+}
+```
+
+```json
+{
+    "status" : "error/success",
+    "message" : "RETURNES-MESSAGE",
 }
 ```
 

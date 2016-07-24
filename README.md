@@ -1,4 +1,4 @@
-Mainpixel Laravel Api
+Laravel Mainpixel Api
 ====================
 Laravel API was created by, and is maintained by [Mr. J. del Luna](https://github.com/paperclamp), and is a [MainpixelV4](https://www.mainpixel.io) bridge for [Laravel 5](http://laravel.com). Feel free to check out the [change log](CHANGELOG.md).
 
@@ -89,5 +89,35 @@ public function index() {
         "databases" : "NUMBER-OF-DATABASES"
     },
 }
+```
 
+#### Show Webcontainer
+
+```php
+public function show($containerID) {
+    $show = $containers->show([
+        'identifier' => 'CONTAINER-IDENTIFIER'
+    ]);
+}
+```
+
+##### Output
+
+```json
+{
+    "protected" : {
+        "identifier" : "UNIQUE-CONTAINER-ID",
+        "created_at" : "UNIX-TIMESTAMP",
+        "updated_at" : "UNIX-TIMESTAMP",
+    },
+    "data" : {
+        "general" : {
+          "name" : "CONTAINER-NAME",
+          "type" : "TYPE (like: wordpress, magento, laravel etc..)",
+          "note" : "NOTE",
+          "php" : "PHP-VERSION (default 7)"
+        }
+    },
+}
+```
 

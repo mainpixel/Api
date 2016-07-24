@@ -74,7 +74,7 @@ public function index() {
     
     },
     "domains" : {
-        0 : {
+        "0" : {
             "DOMAIN-ID" : "DOMAIN-INCL-TLD"
         }, 
     },

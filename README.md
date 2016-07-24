@@ -54,5 +54,10 @@ public function index() {
     $list = $containers->list();
 }
 ```
+##### Output
+```json
+{
+    "test" : "test"
+}
 
 

@@ -21,3 +21,24 @@ Instead, you may of course manually update your require block and run `composer 
     }
 }
 ```
+
+Once Laravel Mainpixel is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
+
+* `'mainpixelbv\laravel-mainpixel\MainpixelApiServiceProvider'`
+
+You can register the DigitalOcean facade in the `aliases` key of your `config/app.php` file if you like.
+
+* `'DigitalOcean' => 'mainpixelbv\laravel-mainpixel\MainpixelApi'`
+
+## Configuration
+
+Laravel Mainpixel requires connection configuration.
+
+To get started, you'll need to publish all vendor assets:
+
+```bash
+$ php artisan vendor:publish
+```
+
+This will create a `config/MainpixelApi.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
+

@@ -55,6 +55,11 @@ use Mainpixel\Api\Types\Hosting\{type};
 
 ### Webcontainers 
 
+- [List webcontainers](#list-all-webcontainers)
+- [Show webcontainer](#show-webcontainer)
+- [Update webcontainer](#update-webcontainer)
+- [Destroy webcontainer](#destroy-webcontainer)
+
 `use Mainpixel\Api\Types\Hosting\Containers;`
 
 During the building process of Mainpixel we took a whole new concept together. We wanted to issolate each website/platform from eachother. So we builded a container management platform. So each website/platform is hosted in a seperate webcontainer. Those webcontainers can we automatically move arround nodes for the best performance and scalability.
@@ -66,7 +71,7 @@ public function index() {
     $list = $containers->list();
 }
 ```
-##### Output
+
 ```json
 {
     "protected" : {
@@ -105,8 +110,6 @@ public function show($containerID) {
     ]);
 }
 ```
-
-##### Output
 
 ```json
 {

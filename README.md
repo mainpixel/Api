@@ -179,7 +179,7 @@ public function update($containerID) {
 ```json
 {
     "status" : "error/success",
-    "message" : "RETURNES-MESSAGE",
+    "message" : "RETURNED-MESSAGE",
 }
 ```
 

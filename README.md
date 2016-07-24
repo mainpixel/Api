@@ -91,7 +91,7 @@ use Mainpixel\Api\Types\Hosting\{type};
 
 `use Mainpixel\Api\Types\Hosting\Containers;`
 
-During the building process of Mainpixel we took a whole new concept together. We wanted to issolate each website/platform from eachother. So we builded a container management platform. So each website/platform is hosted in a seperate webcontainer. Those webcontainers can we automatically move arround nodes for the best performance and scalability.
+During the building process of Mainpixel we took a whole new concept together. We wanted to issolate each website/platform from eachother. So we builded a container management platform where each website/platform is hosted in a seperate webcontainer. Those webcontainers can be automatically moved arround all connected nodes for the best performance and scalability solution.
 
 #### List all webcontainers
 

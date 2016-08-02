@@ -17,9 +17,24 @@ return [
 
     /*
      *
+     * Localization.
+     *
+     * Locale_from
+     * Specify if locale must be taken from the 'config' file, or from your laravel
+     * install like app()->getLocale().
+     *
+     * locale
+     * At this point we cover three languages like 'en' (English), 'de' (German) and 'nl' (Dutch).
+     *
+     */
+    'locale_from' => 'config',
+    'locale' => 'en',
+
+    /*
+     *
      * ONLY ENABLED FOR SERVER ADMIN's
      *
-     * If you are running a private server and building a application witch allow people to
+     * If you are hosting your own private server and building an application witch allow people to
      * manage their profiles. You can add a API token witch allow 'all' profiles by default.
      *
      * You can overwrite below value by doing 'config(["MainpixelApi.profile"=>'YOUR-PROFILE-ID'])'

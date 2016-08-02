@@ -11,6 +11,7 @@ Laravel API was created by, and is maintained by [Mr. J. del Luna](https://githu
     - Webcontainers
         - [List webcontainers](#list-all-webcontainers)
         - [Show webcontainer](#show-webcontainer)
+        - [Store webcontainer](#store-webcontainer)
         - [Update webcontainer](#update-webcontainer)
         - [Remove webcontainer](#destroy-webcontainer)
     - Domains
@@ -96,44 +97,49 @@ During the building process of Mainpixel we took a whole new concept together. W
 #### List all webcontainers
 
 ```php
-public function index() {
+public function index(Containers $containers) {
     $list = $containers->list();
 }
 ```
 
 ```json
 {
-    "protected" : {
-        "identifier" : "UNIQUE-CONTAINER-ID",
-        "created_at" : "UNIX-TIMESTAMP",
-        "updated_at" : "UNIX-TIMESTAMP",
-        "dns_general_state" : "DOMAINS-DNS-STATE (true/false)"
+    "0" : {
+        "protected" : {
+            "identifier" : "UNIQUE-CONTAINER-ID",
+            "created_at" : "UNIX-TIMESTAMP",
+            "updated_at" : "UNIX-TIMESTAMP",
+            "dns_general_state" : "DOMAINS-DNS-STATE (true/false)"
+        },
+        "data" : {
+            "general" : {
+              "name" : "CONTAINER-NAME",
+              "type" : "TYPE (like: wordpress, magento, laravel etc..)",
+              "note" : "NOTE",
+              "php" : "PHP-VERSION (default 7)"
+            }
+        },
+        "domains" : {
+            "0" : {
+                "DOMAIN-ID" : "DOMAIN-INCL-TLD"
+            },                                                    
+        },
+        "amount" : {
+            "domains" : "NUMBER-OF-DOMAINS",
+            "email" : "NUMBER-OF-EMAIL-ACCOUNTS/FORWARDERS/CATCHALLS",
+            "databases" : "NUMBER-OF-DATABASES"
+        },
     },
-    "data" : {
-        "general" : {
-          "name" : "CONTAINER-NAME",
-          "type" : "TYPE (like: wordpress, magento, laravel etc..)",
-          "note" : "NOTE",
-          "php" : "PHP-VERSION (default 7)"
-        }
-    },
-    "domains" : {
-        "0" : {
-            "DOMAIN-ID" : "DOMAIN-INCL-TLD"
-        }, 
-    },
-    "amount" : {
-        "domains" : "NUMBER-OF-DOMAINS",
-        "email" : "NUMBER-OF-EMAIL-ACCOUNTS/FORWARDERS/CATCHALLS",
-        "databases" : "NUMBER-OF-DATABASES"
-    },
+    "1" : {
+        
+    }
 }
 ```
 
 #### Show Webcontainer
 
 ```php
-public function show($containerID) {
+public function show($containerID,Containers $containers) {
     $show = $containers->show([
         'identifier' => 'CONTAINER-IDENTIFIER'
     ]);
@@ -158,11 +164,11 @@ public function show($containerID) {
 }
 ```
 
-#### Update Webcontainer
+#### Store Webcontainer
 
 ```php
-public function update($containerID) {
-    $show = $containers->uptate([
+public function store($containerID,Containers $containers) {
+    $show = $containers->add([
         'identifier' => 'CONTAINER-IDENTIFIER',
         'data' => [
             'general' => [
@@ -182,6 +188,92 @@ public function update($containerID) {
     "message" : "RETURNED-MESSAGE",
 }
 ```
+
+#### Update Webcontainer
+
+```php
+public function update($containerID,Containers $containers) {
+    $show = $containers->update([
+        'identifier' => 'CONTAINER-IDENTIFIER',
+        'data' => [
+            'general' => [
+                'name' => 'CONTAINER-NAME',
+                'type' => 'TYPE (like: wordpress, magento, laravel etc..)',
+                'note' => 'NOTE',
+                'php' => 'PHP-VERSION'
+            ],
+        ]
+    ]);
+}
+```
+
+```json
+{
+    "status" : "error/success",
+    "message" : "RETURNED-MESSAGE",
+}
+```
+
+#### Destroy Webcontainer
+
+```php
+public function store($containerID,Containers $containers) {
+    $show = $containers->remove([
+        'identifier' => 'CONTAINER-IDENTIFIER',
+    ]);
+}
+```
+
+```json
+{
+    "status" : "error/success",
+    "message" : "RETURNED-MESSAGE",
+}
+```
+
+## Domains 
+
+`use Mainpixel\Api\Types\Hosting\Domains;`
+
+A webcontainer listening to specific connected domains. When you add a domain, the server-cluster will 
+automaticly adopt and updates the webcontainer ninx serverblock. We added some great functionalities to 
+our API like DNS states and DNS management
+
+#### List all domains
+
+```php
+public function index(Domains $domains) {
+    $list = $domain->list([
+        'identifier' => 'WEBCONTAINER-ID'
+    ]);
+}
+```
+
+```json
+{
+    "0" : {
+        "protected" : {
+            "identifier" : "UNIQUE-DOMAIN-ID",
+            "created_at" : "UNIX-TIMESTAMP",
+            "updated_at" : "UNIX-TIMESTAMP"
+        },
+        "data" : {
+            "domain" : "example',
+            "tld" : "com"
+        },
+        "dns" : {
+            "state" : "NS-SERVER-CONNECTED (true/false)",
+            "records" : {}
+        },
+    },
+    "1" : {
+    
+    }
+}
+```
+
+
+
 
 
 

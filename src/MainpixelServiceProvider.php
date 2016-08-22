@@ -64,7 +64,7 @@ class MainpixelServiceProvider extends ServiceProvider
 	public function register()
 	{
 		$this->app->bind('MpApi', function ($app) {
-			return new Mainpixel\Api;
+			return new Mainpixel\Api\Types\Sales;
 		});
 	}
 }

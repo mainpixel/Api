@@ -12,8 +12,8 @@ return [
      * Please check documentation for a how-to.
      */
 
-    'url'   => 'YOUR-DOMAIN/api/v1/',
-    'token' => 'YOUR-TOKEN',
+    'url'   => 'YOUR-NODE-DOMAIN/api/v1/',
+    'token' => 'YOUR-ACCESS-TOKEN',
 
     /*
      *

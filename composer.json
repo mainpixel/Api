@@ -1,5 +1,5 @@
 {
-    "name": "mainpixel/apiV1",
+    "name": "mainpixel/laravel-api",
     "description": "Connect all Mainpixel apps with your own application based on Laravel 5.* or higher",
     "license": "Apache-2.0",
     "authors": [

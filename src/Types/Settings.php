@@ -16,7 +16,7 @@ class Settings extends MainpixelApi{
 
 	protected $allowed = [
 		'show',
-		'update',
+		'edit',
 	];
 
 }

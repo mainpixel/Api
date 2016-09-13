@@ -16,6 +16,7 @@ class Send extends MainpixelApi{
 
 	protected $allowed = [
 		'add',
+		'show',
 	];
 
 }

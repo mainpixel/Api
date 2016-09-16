@@ -19,6 +19,7 @@ class Invoices extends MainpixelApi{
 		'edit',
 		'show',
 		'list',
+		'remove',
 	];
 
 }

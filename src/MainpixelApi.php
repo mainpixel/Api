@@ -111,6 +111,7 @@ class MainpixelApi {
         $client = new GuzzleHttp\Client();
         $open = config('mainpixelApi.url') . $this->path;
 
+
         // 1.2 Do a request into given URL.
         try {
             // 1.4 If method is GET
@@ -153,7 +154,7 @@ class MainpixelApi {
             return json_decode($res->getBody()->getContents(), true);
 
         } catch (\Exception $ex) {
-            return $ex->getMessage();
+            abort($ex->getCode(),$ex->getMessage());
             \Log::error($ex);
         }
     }

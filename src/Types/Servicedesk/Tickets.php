@@ -9,7 +9,7 @@
 namespace Mainpixel\Api\Types\Servicedesk;
 use Mainpixel\Api\MainpixelApi;
 
-class Tciekts extends MainpixelApi{
+class Tickets extends MainpixelApi{
 	protected $path = 'servicedesk/tickets';
 	protected $allowed = [
 		'add',

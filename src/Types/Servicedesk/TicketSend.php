@@ -13,5 +13,6 @@ class TicketSend extends MainpixelApi{
 	protected $path = 'servicedesk/ticket-send';
 	protected $allowed = [
 		'add',
+		'edit',
 	];
 }

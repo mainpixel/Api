@@ -12,10 +12,11 @@ use Mainpixel\Api\MainpixelApi;
 
 class Employees extends MainpixelApi{
 
-	protected $path = 'settings';
+	protected $path = 'global/employees';
 
 	protected $allowed = [
-		'show'
+		'show',
+		'list'
 	];
 
 }

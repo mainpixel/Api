@@ -9,7 +9,7 @@
 namespace Mainpixel\Api\Types\Servicedesk;
 use Mainpixel\Api\MainpixelApi;
 
-class Tickets extends MainpixelApi{
+class TicketTelegram extends MainpixelApi{
 	protected $path = 'servicedesk/ticket-telegram';
 	protected $allowed = [
 		'add'

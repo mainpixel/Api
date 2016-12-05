@@ -6,13 +6,13 @@
  * Written by Jasper Berkhout <jasper@mainpixel.io>.
  ******************************************************************************/
 
-namespace Mainpixel\Api\Types\Global;
+namespace Mainpixel\Api\Types\General;
 
 use Mainpixel\Api\MainpixelApi;
 
 class Employees extends MainpixelApi{
 
-	protected $path = 'global/employees';
+	protected $path = 'general/employees';
 
 	protected $allowed = [
 		'show',

@@ -134,16 +134,6 @@ class MainpixelApi {
                     ],
                     'form_params' => $params,
                 ];
-                if (!empty($_FILES))
-                    $job['multipart'] = [];
-                    foreach ( $_FILES as $file ) {
-                        $job['multipart'][] = [
-                            'name'     => 'file',
-                            'contents' => fopen($file['tmp_name'], 'r'),
-                            'filename' => $file['name'],
-                        ];
-                    }
-                }
             }
 
             // 1.6 Execute request into API Server.

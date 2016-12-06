@@ -132,11 +132,10 @@ class MainpixelApi {
                         'profile'  => config('mainpixelApi.profile'),
                         'language' => app()->getLocale(),
                     ],
+                    'form_params' => $params,
                 ];
-
-                if (request()->hasFile('file')) {
+                if (!empty($_FILES))
                     $job['multipart'] = [];
-                    $job['query'] = $params;
                     foreach ( $_FILES as $file ) {
                         $job['multipart'][] = [
                             'name'     => 'file',
@@ -144,8 +143,6 @@ class MainpixelApi {
                             'filename' => $file['name'],
                         ];
                     }
-                } else {
-                    $job['form_params'] = $params;
                 }
             }
 

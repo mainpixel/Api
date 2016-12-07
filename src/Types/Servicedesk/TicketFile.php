@@ -9,7 +9,7 @@
 namespace Mainpixel\Api\Types\Servicedesk;
 use Mainpixel\Api\MainpixelApi;
 class TicketFile extends MainpixelApi{
-	protected $path = 'servicedesk/ticket-download';
+	protected $path = 'servicedesk/ticket-file';
 	protected $allowed = [
 		'show',
 	];

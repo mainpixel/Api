@@ -17,7 +17,6 @@ class Timeline extends MainpixelApi{
 	protected $path = 'crm/timeline';
 
 	protected $allowed = [
-		'add',
 		'list',
 	];
 

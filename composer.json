@@ -1,6 +1,6 @@
 {
-    "name": "mainpixel/laravel-api",
-    "description": "Connect all Mainpixel apps with your own application based on Laravel 5.* or higher",
+    "name": "nimmacloud/laravel-api",
+    "description": "Connect all NimmaCloud apps with your own application based on Laravel 5.* or higher",
     "license": "Apache-2.0",
     "authors": [
         {
@@ -11,8 +11,7 @@
         }
     ],
     "support": {
-        "email": "support@mainpixel.io",
-        "irc": "irc://irc.freenode.org/mainpixelbv"
+        "email": "support@mainpixel.io"
     },
     "minimum-stability": "dev",
     "require": {

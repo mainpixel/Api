@@ -120,6 +120,7 @@ class MainpixelApi {
                     'headers' => [
                         'token'    => config('mainpixelApi.token'),
                         'profile'  => config('mainpixelApi.profile'),
+                        'user_id'  => config('mainpixelApi.user_id'),
                         'language' => app()->getLocale(),
                     ],
                     'query'   => $params,
@@ -130,6 +131,7 @@ class MainpixelApi {
                     'headers' => [
                         'token'    => config('mainpixelApi.token'),
                         'profile'  => config('mainpixelApi.profile'),
+                        'user_id'  => config('mainpixelApi.user_id'),
                         'language' => app()->getLocale(),
                     ],
                     'form_params' => $params,

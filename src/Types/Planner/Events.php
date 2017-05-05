@@ -16,5 +16,6 @@ class Events extends MainpixelApi{
 		'edit',
 		'show',
 		'list',
+		'remove',
 	];
 }

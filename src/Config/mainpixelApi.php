@@ -14,6 +14,8 @@ return [
 
     'url'   => 'YOUR-NODE-DOMAIN/api/v1/',
     'token' => 'YOUR-ACCESS-TOKEN',
+    'profile' => 'YOUR-PROFILE-ID',
+    'user_id' => 'UNIQUE-USER-ID (optional)',
 
     /*
      *
@@ -29,17 +31,4 @@ return [
      */
     'locale_from' => 'config',
     'locale' => 'en',
-
-    /*
-     *
-     * ONLY ENABLED FOR SERVER ADMIN's
-     *
-     * If you are hosting your own private server and building an application witch allow people to
-     * manage their profiles. You can add a API token witch allow 'all' profiles by default.
-     *
-     * You can overwrite below value by doing 'config(["MainpixelApi.profile"=>'YOUR-PROFILE-ID'])'
-     * So when force every api-call with the right selected profileID.
-     */
-
-    'profile' => '',
 ];

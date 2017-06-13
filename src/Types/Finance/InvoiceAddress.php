@@ -12,11 +12,10 @@ use Mainpixel\Api\MainpixelApi;
 
 class InvoiceAddress extends MainpixelApi{
 
-	protected $path = 'finance/address';
+	protected $path = 'finance/invoice-address';
 
 	protected $allowed = [
 		'edit',
-    'show'
 	];
 
 }

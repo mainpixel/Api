@@ -9,7 +9,7 @@
  */
 namespace Mainpixel\Api\Types\Crm;
 use Mainpixel\Api\MainpixelApi;
-class People extends MainpixelApi{
+class Labels extends MainpixelApi{
 	protected $path = 'crm/labels';
 	protected $allowed = [
 		'list',

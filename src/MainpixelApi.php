@@ -139,7 +139,7 @@ class MainpixelApi {
             }
 
             // 1.6 Execute request into API Server.
-            $res = $client->request(strtoupper($request), (string) $open, $job);
+            $res = $client->setDefaultOption('verify', false)->request(strtoupper($request), (string) $open, $job);
             return json_decode($res->getBody()->getContents(), true);
 
         } catch (\Exception $ex) {

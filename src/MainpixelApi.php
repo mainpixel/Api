@@ -117,6 +117,7 @@ class MainpixelApi {
             // 1.4 If method is GET
             if ( in_array(strtoupper($request), ['GET']) ) {
                 $job = [
+                    'verify' => false,
                     'headers' => [
                         'token'    => config('mainpixelApi.token'),
                         'profile'  => config('mainpixelApi.profile'),
@@ -128,7 +129,9 @@ class MainpixelApi {
                 // 1.5 If method not as above.
             } else {
                 $job = [
+                    'verify' => false,
                     'headers' => [
+                        
                         'token'    => config('mainpixelApi.token'),
                         'profile'  => config('mainpixelApi.profile'),
                         'user-id'  => config('mainpixelApi.user_id'),
@@ -139,7 +142,7 @@ class MainpixelApi {
             }
 
             // 1.6 Execute request into API Server.
-            $res = $client->setDefaultOption('verify', false)->request(strtoupper($request), (string) $open, $job);
+            $res = $client->request(strtoupper($request), (string) $open, $job);
             return json_decode($res->getBody()->getContents(), true);
 
         } catch (\Exception $ex) {

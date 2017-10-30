@@ -146,8 +146,9 @@ class MainpixelApi {
             return json_decode($res->getBody()->getContents(), true);
 
         } catch (\Exception $ex) {
-            abort($ex->getCode(),$ex->getMessage());
-            \Log::error($ex);
+            report($ex);
+            //abort($ex->getCode(),$ex->getMessage());
+            //\Log::error($ex);
         }
     }
 }

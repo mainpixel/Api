@@ -12,7 +12,6 @@ use Mainpixel\Api\MainpixelApi;
 class Auth extends MainpixelApi{
 	protected $path = 'crm/auth';
 	protected $allowed = [
-  'add',
 		'edit',
 		'show',
 	];

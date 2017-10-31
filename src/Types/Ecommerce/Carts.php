@@ -14,6 +14,5 @@ class Carts extends MainpixelApi{
 		'edit',
 		'show',
 		'list',
-		'remove',
 	];
 }
